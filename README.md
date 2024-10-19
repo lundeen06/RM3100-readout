@@ -21,8 +21,8 @@ Connect the RM3100 Magnetometer to the Arduino Uno as follows:
 
 - VCC to 3.3V
 - GND to GND
-- SDA to A4 (or SDA pin if your Arduino has dedicated SDA/SCL pins)
-- SCL to A5 (or SCL pin if your Arduino has dedicated SDA/SCL pins)
+- SDA to COPI
+- SCL to CLK
 
 Additionally, you need to add pull-up resistors:
 - Connect a 10K ohm resistor from SDA to 3.3V
