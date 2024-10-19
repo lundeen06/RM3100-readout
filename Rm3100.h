@@ -203,7 +203,7 @@ public:
      * @param scl I2C clock pin
      * @param addr 8-bit I2C address
      */
-    Rm3100(TwoWire wire, uint8_t addr);
+    Rm3100(TwoWire& wire, uint8_t addr);
 
     virtual ~Rm3100();
 
@@ -453,7 +453,7 @@ public:
     int GetHardwareRevision(uint8_t *rev);
 
 private:
-    TwoWire _wire;
+    TwoWire& _wire;
     uint8_t _addr;
     struct MeasurementScale _scale;
     int _sample_delay_ms;
@@ -461,4 +461,4 @@ private:
     int Write(uint8_t reg, uint8_t *buffer, uint8_t count);
 };
 
-#endif /* RM3100_HPP */
+#endif /* RM3100_H */
