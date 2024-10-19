@@ -1,4 +1,4 @@
-# Magnetometer Readout
+# RM3100 Readout
 
 This project utilizes an Arduino Uno to interface with an RM3100 Magnetometer sensor via I2C configuration. It continuously reads and outputs magnetometer data when the sensor is connected, and provides a visual indicator using the onboard LED when the sensor is not detected.
 
@@ -57,15 +57,3 @@ Connect the RM3100 Magnetometer to the Arduino Uno as follows:
   - Check your wiring connections
   - Ensure the sensor is powered correctly
   - Verify that you're using a compatible RM3100 Magnetometer sensor
-
-## Customization
-
-You can adjust the following parameters in the code:
-
-- `BLINK_COUNT`: Number of LED blinks when sensor is not connected (default: 2)
-- `BLINK_DURATION`: Duration of each blink in milliseconds (default: 100)
-- `WAIT_DURATION`: Wait time between blink sequences in milliseconds (default: 2000)
-
-## Contributing
-
-Feel free to fork this project and submit pull requests with any improvements or bug fixes.
