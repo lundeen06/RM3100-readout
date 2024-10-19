@@ -13,7 +13,6 @@ This project utilizes an Arduino Uno to interface with an RM3100 Magnetometer se
 
 1. Arduino Uno board
 2. RM3100 Magnetometer sensor
-3. Connecting wires
 
 ## Wiring
 
