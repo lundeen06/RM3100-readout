@@ -1,4 +1,4 @@
-# RM3100 Readout
+# RM3100 Magnetometer Readout
 
 This project utilizes an Arduino Uno to interface with an RM3100 Magnetometer sensor via I2C configuration. It continuously reads and outputs magnetometer data when the sensor is connected, and provides a visual indicator using the onboard LED when the sensor is not detected.
 
