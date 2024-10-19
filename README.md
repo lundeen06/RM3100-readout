@@ -13,6 +13,7 @@ This project utilizes an Arduino Uno to interface with an RM3100 Magnetometer se
 
 1. Arduino Uno board
 2. RM3100 Magnetometer sensor
+3. Two 10K ohm resistors (for I2C pull-ups)
 
 ## Wiring
 
@@ -20,8 +21,14 @@ Connect the RM3100 Magnetometer to the Arduino Uno as follows:
 
 - VCC to 3.3V
 - GND to GND
-- SDA to COPI
-- SCL to CLK
+- SDA to A4 (or SDA pin if your Arduino has dedicated SDA/SCL pins)
+- SCL to A5 (or SCL pin if your Arduino has dedicated SDA/SCL pins)
+
+Additionally, you need to add pull-up resistors:
+- Connect a 10K ohm resistor from SDA to 3.3V
+- Connect a 10K ohm resistor from SCL to 3.3V
+
+These pull-up resistors are crucial for proper I2C communication. They ensure the bus lines are pulled high when idle, which is necessary for the I2C protocol to function correctly.
 
 ## Software Dependencies
 
@@ -32,7 +39,7 @@ Connect the RM3100 Magnetometer to the Arduino Uno as follows:
 ## Setup
 
 1. Clone this repository or download the project files.
-2. Open the `magnetometer-readout.ino` file in the Arduino IDE.
+2. Open the `RM3100-readout.ino` file in the Arduino IDE.
 3. Ensure that the Rm3100.h and Rm3100.cpp files are in the same directory as the .ino file.
 4. Connect your Arduino Uno to your computer.
 5. Select the correct board and port in the Arduino IDE.
@@ -57,3 +64,19 @@ Connect the RM3100 Magnetometer to the Arduino Uno as follows:
   - Check your wiring connections
   - Ensure the sensor is powered correctly
   - Verify that you're using a compatible RM3100 Magnetometer sensor
+  - Double-check that the pull-up resistors are correctly installed
+- If the communication is unstable:
+  - Ensure that the pull-up resistors are properly connected
+  - Try shortening the wires between the Arduino and the sensor
+  - Check for any nearby sources of electromagnetic interference
+
+## Notes on I2C Pull-up Resistors
+
+The 10K ohm pull-up resistors on the SDA and SCL lines are essential for reliable I2C communication. They serve several purposes:
+
+1. They ensure the I2C bus lines are in a known (high) state when idle.
+2. They allow for multi-device communication on the same bus.
+3. They help maintain signal integrity and reduce noise.
+4. They comply with the I2C specification for proper bus operation.
+
+While some setups might work without external pull-ups (relying on internal MCU pull-ups), adding these resistors is a best practice that ensures more reliable and robust I2C communication, especially in noisy environments or with longer cable runs.
